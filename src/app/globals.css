@@ -1,0 +1,302 @@
+@import "tailwindcss";
+
+/* ── Design tokens. Carried verbatim from the Meridian design system. ────────────
+   Rebranding a clinic means changing --c-teal (and optionally --c-gold) only.
+
+   Typefaces are self-hosted through next/font (see app/layout.tsx), which supplies
+   --font-schibsted and --font-figtree. That removes the render-blocking Google
+   stylesheet and the layout shift that came with it. */
+:root {
+  --font-display: var(--font-schibsted), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-text: var(--font-figtree), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Base palette */
+  --c-bg: #FAFCFB;
+  --c-surface: #FFFFFF;
+  --c-ink: #102A2E;
+  --c-ink-muted: #647477;
+  --c-teal: #167C80;
+  --c-teal-light: #DDF3F1;
+  --c-gold: #C69C5A;
+  --c-border: #E5EBEA;
+  --c-success: #2E8B68;
+
+  --c-teal-hover: #12696D;
+  --c-teal-press: #0E585B;
+  --c-teal-soft: #EEF8F7;
+  --c-teal-ink: #0B4143;
+  --c-ink-soft: #8A9A9C;
+  --c-border-strong: #D3DEDC;
+  --c-overlay: rgba(16, 42, 46, .42);
+  --c-gold-soft: #F7F0E3;
+  --c-danger: #B4483F;
+
+  /* Semantic aliases — these are the names components reference directly. */
+  --bg-page: var(--c-bg);
+  --bg-page-alt: #F4F8F7;
+  --surface-card: var(--c-surface);
+  --surface-tint: var(--c-teal-light);
+  --surface-tint-soft: var(--c-teal-soft);
+  --surface-inverse: var(--c-ink);
+
+  --text-heading: var(--c-ink);
+  --text-body: #33474A;
+  --text-muted: var(--c-ink-muted);
+  --text-subtle: var(--c-ink-soft);
+  --text-accent: var(--c-teal);
+  --text-on-accent: #FFFFFF;
+  --text-on-inverse: #E8F1F0;
+
+  --accent: var(--c-teal);
+  --accent-hover: var(--c-teal-hover);
+  --accent-press: var(--c-teal-press);
+  --accent-quiet: var(--c-teal-light);
+  --accent-warm: var(--c-gold);
+
+  --border-hairline: var(--c-border);
+  --border-strong: var(--c-border-strong);
+  --focus-ring: rgba(22, 124, 128, .38);
+  --status-success: var(--c-success);
+  --status-danger: var(--c-danger);
+
+  /* Type roles */
+  --type-display: 700 clamp(40px,6.2vw,72px)/1.02 var(--font-display);
+  --type-h1: 700 clamp(34px,4.4vw,52px)/1.06 var(--font-display);
+  --type-h2: 600 clamp(28px,3.2vw,38px)/1.12 var(--font-display);
+  --type-h3: 600 22px/1.24 var(--font-display);
+  --type-h4: 600 18px/1.34 var(--font-display);
+  --type-lead: 400 clamp(17px,1.5vw,20px)/1.55 var(--font-text);
+  --type-body: 400 17px/1.62 var(--font-text);
+  --type-body-sm: 400 15px/1.58 var(--font-text);
+  --type-label: 600 12px/1.2 var(--font-text);
+  --type-meta: 500 13px/1.4 var(--font-text);
+  --type-button: 600 15px/1 var(--font-text);
+
+  --tracking-display: -0.032em;
+  --tracking-heading: -0.022em;
+  --tracking-body: -0.006em;
+  --tracking-label: 0.09em;
+
+  --measure-narrow: 34ch;
+  --measure: 62ch;
+  --measure-wide: 78ch;
+
+  /* Spacing / layout */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 20px; --space-6: 24px;
+  --space-8: 32px; --space-10: 40px; --space-12: 48px; --space-16: 64px; --space-20: 80px;
+  --space-24: 96px; --space-32: 128px; --space-40: 160px;
+
+  --section-y: clamp(64px,9vw,128px);
+  --section-y-tight: clamp(48px,6vw,80px);
+  --container: 1200px;
+  --container-narrow: 760px;
+  --gutter: clamp(20px,5vw,40px);
+  --tap-min: 44px;
+
+  /* Radius — mirrors shadcn/ui's calc ladder, tuned to a 12px base. */
+  --radius: 12px;
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.4);
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-xs: 0 1px 2px rgba(16,42,46,.05);
+  --shadow-sm: 0 1px 2px rgba(16,42,46,.04), 0 4px 12px -8px rgba(16,42,46,.14);
+  --shadow-md: 0 1px 2px rgba(16,42,46,.04), 0 12px 28px -16px rgba(16,42,46,.18);
+  --shadow-lg: 0 2px 4px rgba(16,42,46,.04), 0 28px 56px -28px rgba(16,42,46,.22);
+  --shadow-modal: 0 40px 96px -32px rgba(16,42,46,.30), 0 2px 6px rgba(16,42,46,.06);
+  --shadow-accent: 0 10px 24px -14px rgba(22,124,128,.55);
+  --ring-focus: 0 0 0 3px var(--focus-ring);
+
+  /* Motion — easing curves taken verbatim from Motion (motion-utils/src/easing). */
+  --ease-in: cubic-bezier(.42,0,1,1);
+  --ease-out: cubic-bezier(0,0,.58,1);
+  --ease-in-out: cubic-bezier(.42,0,.58,1);
+  --ease-back-out: cubic-bezier(.33,1.53,.69,.99);
+  --ease-entrance: cubic-bezier(.22,1,.36,1);
+
+  --dur-instant: 90ms;
+  --dur-fast: 160ms;
+  --dur-base: 240ms;
+  --dur-slow: 420ms;
+  --dur-reveal: 640ms;
+
+  --stagger: 70ms;
+  --reveal-shift: 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-instant: 0ms; --dur-fast: 0ms; --dur-base: 0ms; --dur-slow: 0ms; --dur-reveal: 0ms;
+    --stagger: 0ms; --reveal-shift: 0px;
+  }
+}
+
+/* ── Tailwind bridge. Every utility resolves to a token above. ─────────────────── */
+@theme inline {
+  --font-display: var(--font-display);
+  --font-sans: var(--font-text);
+
+  --color-page: var(--c-bg);
+  --color-page-alt: var(--bg-page-alt);
+  --color-surface: var(--c-surface);
+  --color-ink: var(--c-ink);
+  --color-ink-body: var(--text-body);
+  --color-ink-muted: var(--c-ink-muted);
+  --color-ink-soft: var(--c-ink-soft);
+  --color-accent: var(--c-teal);
+  --color-accent-hover: var(--c-teal-hover);
+  --color-accent-press: var(--c-teal-press);
+  --color-accent-light: var(--c-teal-light);
+  --color-accent-soft: var(--c-teal-soft);
+  --color-accent-ink: var(--c-teal-ink);
+  --color-gold: var(--c-gold);
+  --color-gold-soft: var(--c-gold-soft);
+  --color-hairline: var(--c-border);
+  --color-hairline-strong: var(--c-border-strong);
+  --color-success: var(--c-success);
+  --color-danger: var(--c-danger);
+
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-modal: var(--shadow-modal);
+  --shadow-accent: var(--shadow-accent);
+
+  --ease-entrance: var(--ease-entrance);
+  --ease-out: var(--ease-out);
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg-page); color: var(--text-body);
+    font-family: var(--font-text); font-size: 17px; line-height: 1.62; letter-spacing: var(--tracking-body);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    margin: 0; color: var(--text-heading); font-family: var(--font-display);
+    letter-spacing: var(--tracking-heading); text-wrap: balance;
+  }
+  p { margin: 0; text-wrap: pretty; }
+  a { color: var(--text-accent); text-decoration: none; transition: color var(--dur-fast) var(--ease-out); }
+  a:hover { color: var(--accent-hover); }
+  img { max-width: 100%; display: block; }
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--radius-sm);
+  }
+  ::selection { background: var(--accent-quiet); color: var(--text-heading); }
+}
+
+/* ── Type roles. Used as classes so section markup stays readable. ─────────────── */
+@layer components {
+  .t-display { font: var(--type-display); letter-spacing: var(--tracking-display); }
+  .t-h1 { font: var(--type-h1); letter-spacing: var(--tracking-display); }
+  .t-h2 { font: var(--type-h2); letter-spacing: var(--tracking-heading); }
+  .t-h3 { font: var(--type-h3); letter-spacing: var(--tracking-heading); }
+  .t-h4 { font: var(--type-h4); letter-spacing: -0.018em; }
+  .t-lead { font: var(--type-lead); }
+  .t-meta { font: var(--type-meta); }
+  .t-label { font: var(--type-label); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+  .container-page { max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+  .container-narrow { max-width: var(--container-narrow); margin-inline: auto; }
+  .section-y { padding-block: var(--section-y); }
+  .section-y-tight { padding-block: var(--section-y-tight); }
+
+  /* Class form of the design system's Button, so Next.js <Link> can carry the
+     same skin without losing client-side navigation. Values are the existing
+     Button component's — no new colours, radii or shadows introduced. */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    height: 46px; min-height: var(--tap-min); padding: 0 22px;
+    font-family: var(--font-text); font-weight: 600; font-size: 15px; line-height: 1;
+    letter-spacing: -0.005em; white-space: nowrap; text-decoration: none;
+    border-radius: var(--radius-md); border: 1px solid transparent; cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out),
+                border-color var(--dur-fast) var(--ease-out), transform var(--dur-instant) var(--ease-out),
+                box-shadow var(--dur-fast) var(--ease-out);
+  }
+  .btn:active { transform: translateY(1px) scale(.988); }
+  .btn-sm { height: 38px; padding: 0 16px; font-size: 14px; }
+  .btn-lg { height: 54px; padding: 0 28px; font-size: 16px; }
+  .btn-block { display: flex; width: 100%; }
+
+  .btn-primary { background: var(--accent); color: var(--text-on-accent); border-color: var(--accent); box-shadow: var(--shadow-accent); }
+  .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--text-on-accent); }
+
+  .btn-secondary { background: var(--surface-card); color: var(--text-heading); border-color: var(--border-strong); box-shadow: var(--shadow-xs); }
+  .btn-secondary:hover { background: var(--surface-tint-soft); border-color: var(--accent); color: var(--text-accent); }
+
+  .btn-ghost { background: transparent; color: var(--text-heading); }
+  .btn-ghost:hover { background: var(--surface-tint-soft); color: var(--text-accent); }
+
+  .btn-onaccent { background: var(--surface-card); color: var(--c-teal-ink); border-color: var(--surface-card); }
+  .btn-onaccent:hover { background: var(--surface-tint-soft); border-color: var(--surface-tint-soft); color: var(--c-teal-ink); }
+
+  /* Keyboard users reach content without tabbing the whole header. */
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 100;
+    padding: 12px 20px; background: var(--surface-card); color: var(--text-accent);
+    font: var(--type-body-sm); font-weight: 600;
+    border: 1px solid var(--accent); border-radius: var(--radius-md);
+  }
+  .skip-link:focus { left: 12px; top: 12px; }
+
+  /* Editorial layout helpers. */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); }
+  .grid-auto { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .measure { max-width: var(--measure); }
+  .measure-narrow { max-width: var(--measure-narrow); }
+}
+
+/* ── Responsive chrome. Mirrors the design system's own breakpoint at 900/1040px. ── */
+.ds-sticky-cta { display: none; }
+@media (max-width: 1040px) {
+  .ds-nav-links, .ds-nav-cta { display: none !important; }
+  .ds-nav-burger { display: inline-flex !important; }
+}
+@media (min-width: 1041px) {
+  .ds-nav-burger { display: none !important; }
+}
+@media (max-width: 900px) {
+  .ds-sticky-cta { display: grid !important; }
+  .ds-hero, .ds-doctor, .ds-location, .ds-spinemap,
+  .ds-split, .ds-cond-grid, .ds-svc-grid, .grid-2 { grid-template-columns: 1fr !important; }
+
+  /* Sticky mobile bar clears the last section rather than covering it. */
+  body { padding-bottom: 76px; }
+
+  /* Hero: photograph leads on mobile, badge tucks inside the frame. */
+  .ds-hero { gap: 32px !important; }
+  .ds-hero-badge { left: 12px !important; right: 12px !important; bottom: 12px !important; }
+
+  /* The About overlap composition collapses to a simple stack. */
+  .ds-stack { padding-bottom: 0 !important; }
+  .ds-stack-inset {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 18px;
+    box-shadow: none !important;
+  }
+
+  /* Booking aside stops sticking once it's above the form. */
+  .ds-book-aside { position: static !important; }
+}
+
+@media (max-width: 620px) {
+  /* Two-up condition tiles would be too small to read at this width. */
+  .ds-cond-grid > div > div { grid-template-columns: 1fr !important; }
+}

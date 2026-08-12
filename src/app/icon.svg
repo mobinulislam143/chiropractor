@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#167C80"/>
+  <!-- The site's spine motif: segments on an S-curve, broadening toward the base. -->
+  <g fill="#FFFFFF">
+    <rect x="27.4" y="13"   width="9.2"  height="4.4" rx="2.2"/>
+    <rect x="26.2" y="19.6" width="11.6" height="4.6" rx="2.3"/>
+    <rect x="25.4" y="26.4" width="13.2" height="4.8" rx="2.4"/>
+    <rect x="24.4" y="33.4" width="15.2" height="5.0" rx="2.5"/>
+    <rect x="23.0" y="40.6" width="18.0" height="5.2" rx="2.6"/>
+    <rect x="21.6" y="48.0" width="20.8" height="5.6" rx="2.8"/>
+  </g>
+</svg>

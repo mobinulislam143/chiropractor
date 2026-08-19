@@ -34,7 +34,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         q: "Where are you located?",
-        a: "4501 McCullough Ave #107, San Antonio, TX 78212, in Alamo Heights. There's free patient parking on site, directly in front of Suite 107.",
+        a: "4501 McCullough Ave #107, San Antonio, TX 78212, in Julington Creek Chiropractic. There's free patient parking on site, directly in front of Suite 107.",
       },
       {
         q: "Do I need a referral?",

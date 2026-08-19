@@ -26,7 +26,7 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Find us in Alamo Heights"
+        title="Find us in JCC Chiropractic"
         description={`We're at ${clinic.address.full}, with free patient parking directly in front of Suite 107.`}
         crumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
         image={images.interior.primary}

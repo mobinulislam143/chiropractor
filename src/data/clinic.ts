@@ -22,28 +22,28 @@ export type SpineRegion = {
 export type ClinicConfig = typeof clinic;
 
 export const clinic = {
-  name: "Alamo Heights Chiropractic Health Center",
-  shortName: "Alamo Heights Chiropractic",
-  wordmark: "Alamo Heights",
-  tagline: "Chiropractic and massage therapy in Alamo Heights, San Antonio.",
+  name: "Julington Creek Chiropractic Health Center",
+  shortName: "Julington Creek Chiropractic",
+  wordmark: "JCC",
+  tagline: "Chiropractic and massage therapy in Julington Creek, San Antonio.",
   city: "San Antonio",
   state: "TX",
-  neighborhood: "Alamo Heights",
+  neighborhood: "Julington Creek",
 
   /** Used for canonical URLs and Open Graph. Replace at launch. */
-  siteUrl: "https://alamoheightschiropractic.example.com",
+  siteUrl: "https://julingtoncreekchiropractic.example.com",
 
-  phone: { display: "(210) 828-9211", href: "tel:+12108289211" },
+  phone: { display: "(210) 828-9211", href: "tel:+1(904) 230-0080" },
   email: "front desk",
 
   address: {
-    line1: "4501 McCullough Ave #107",
-    line2: "San Antonio, TX 78212",
-    full: "4501 McCullough Ave #107, San Antonio, TX 78212",
-    street: "4501 McCullough Ave #107",
-    postalCode: "78212",
+    line1: "1820 State Rd 13 N",
+    line2: "Jacksonville, FL",
+    full: "1820 State Rd 13 N, Jacksonville, FL 32259, United States",
+    street: "1820 State Rd 13 N",
+    postalCode: "32259",
     directionsUrl:
-      "https://www.google.com/maps/search/?api=1&query=4501+McCullough+Ave+%23107+San+Antonio+TX+78212",
+      "https://www.google.com/maps/place/1820+State+Rd+13+N/data=!4m7!3m6!1s0x88e5ce293a731fab:0x75443070c2866db!8m2!3d30.0824017!4d-81.6400109!16s%2Fg%2F11bw43342k!19sChIJqx9zOinO5YgR22YoDAdDVAc?entry=tts&g_ep=EgoyMDI2MDgxNi4wIPu8ASoASAFQAw%3D%3D&skid=45554f4c-5bdc-401f-9b7a-7a857c637f4d",
     parkingNote: "Free patient parking on site, directly in front of Suite 107.",
     /**
      * Drives the map pin on the contact page.

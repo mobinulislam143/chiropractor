@@ -33,7 +33,7 @@ export const clinic = {
   /** Used for canonical URLs and Open Graph. Replace at launch. */
   siteUrl: "https://julingtoncreekchiropractic.example.com",
 
-  phone: { display: "(210) 828-9211", href: "tel:+1(904) 230-0080" },
+  phone: { display: "(904) 230-0080", href: "tel:+1(904) 230-0080" },
   email: "front desk",
 
   address: {

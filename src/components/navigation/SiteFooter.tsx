@@ -95,8 +95,19 @@ export function SiteFooter() {
             font: "var(--type-meta)", color: "rgba(232,241,240,.45)",
           }}
         >
-          <span>© {new Date().getFullYear()} {clinic.name}. {clinic.legal}</span>
-          <span style={{ display: "flex", gap: 18 }}>
+
+          <span>
+            © {new Date().getFullYear()} Julington Creek Chiropractic Health Center. All rights reserved. Website designed and developed by{" "}
+            <a
+              href="https://webxproai.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold hover:underline"
+            >
+              WebXPro AI
+            </a>{" "}
+            — Founder, Mahi.
+          </span>          <span style={{ display: "flex", gap: 18 }}>
             <Link href="/about" style={{ color: "inherit" }}>About</Link>
             <Link href="/faq" style={{ color: "inherit" }}>FAQ</Link>
             <Link href="/contact" style={{ color: "inherit" }}>Contact</Link>
